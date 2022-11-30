@@ -1,0 +1,8 @@
+---
+controller_inventories:
+  - name: "{{ orgs }} Controller"
+    description: "Inventory for the Controller"
+    organization: "{{ orgs }}"
+    variables:
+      controller_inventory_site_is_active: site1
+...

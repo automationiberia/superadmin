@@ -1,0 +1,14 @@
+---
+controller_projects:
+  - name: "{{ orgs }} CasC_GitLab"
+    description: "Project to include the vars values of the {{ orgs }} Org"
+    organization: "{{ orgs }}"
+    scm_type: git
+    scm_url: "https://github.com/automationiberia/casc_setup.git"
+    scm_branch: testathon
+    scm_clean: false
+    scm_delete_on_update: false
+    scm_update_on_launch: false
+    scm_update_cache_timeout: 86400
+    allow_override: true
+...

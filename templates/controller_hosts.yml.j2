@@ -1,0 +1,8 @@
+---
+controller_hosts:
+- name:  "{{ inventory_hostname_short | regex_replace('-ansible-automation-platform','') }}"
+  description: "Controller host (pointing to LB)"
+  inventory: "{{ orgs | default('superadmin')}} Controller"
+  variables:
+    ansible_host: "{{ inventory_hostname }}"
+...

@@ -1,0 +1,17 @@
+---
+controller_hosts:
+  - name:  "lb-ctlr-dev-{{ controller_location }}"
+    description: "Controller host (pointing to LB)"
+    inventory: "superadmin Controller"
+    variables:
+      ansible_host: "lb-controller-dev-site1.lab.example.com"
+    controller_location: site1
+
+
+  - name:  "lb-ctlr-dev-{{ controller_location }}"
+    description: "Controller host (pointing to LB)"
+    inventory: "superadmin Controller"
+    variables:
+      ansible_host: "lb-controller-dev-site2.lab.example.com"
+    controller_location: site2
+...

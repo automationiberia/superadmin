@@ -1,0 +1,17 @@
+[dev-site1]
+lb-controller-dev-site1.lab.example.com
+[dev-site2]
+lb-controller-dev-site2.lab.example.com
+
+[dev:children]
+dev-site1
+dev-site2
+
+[pro-site1]
+lb-controller-dev-site1.lab.example.com
+[pro-site2]
+lb-controller-dev-site2.lab.example.com
+
+[pro:children]
+pro-site1
+pro-site2

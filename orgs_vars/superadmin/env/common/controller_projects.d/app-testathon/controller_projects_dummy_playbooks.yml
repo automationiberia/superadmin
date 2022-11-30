@@ -1,0 +1,14 @@
+---
+controller_projects:
+  - name: "{{ orgs }} Dummy_Playbooks"
+    description: "Project to run Container_Groups example"
+    organization: "{{ orgs }}"
+    scm_type: git
+    scm_url: "https://github.com/automationiberia/dummy-playbooks.git"
+    scm_clean: false
+    scm_branch: "dev-site"
+    scm_delete_on_update: false
+    scm_update_on_launch: false
+    scm_update_cache_timeout: 86400
+    allow_override: true
+...

@@ -1,0 +1,11 @@
+---
+controller_user_accounts:
+- username: "admin"
+  password: "{{ controller_password }}"
+  email: "admin@example.com"
+  firstname: "admin"
+  lastname: "admin"
+  is_auditor: False
+  is_superuser: True
+  update_secrets: False
+...

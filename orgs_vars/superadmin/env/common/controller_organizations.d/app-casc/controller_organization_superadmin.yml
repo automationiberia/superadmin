@@ -1,0 +1,9 @@
+---
+controller_organizations:
+  - name: "superadmin"
+    description: "Organization for objects that requiere superadmin powers"
+    galaxy_credentials:
+      - "{{ orgs }} {{ env }} {{ controller_location }} Automation Hub Community Repository"
+      - "{{ orgs }} {{ env }} {{ controller_location }} Automation Hub Published Repository"
+      - "{{ orgs }} {{ env }} {{ controller_location }} Automation Hub RH Certified Repository"
+...
