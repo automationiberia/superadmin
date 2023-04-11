@@ -123,3 +123,8 @@ Basically there are two approach that it should be considered when a active/pass
 ```
 $ ansible-playbook mailing.yml
 ```
+
+# Step-by-step configuration
+To have a more detailed process, take a look at the [Step-by-step configuration][step-by-step]
+
+[step-by-step]: ./README_step_by_step.md
