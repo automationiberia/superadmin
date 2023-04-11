@@ -1,5 +1,5 @@
-| [previous document][step_1] | [main document][main_doc] | [next document][step_3] |
-|:--:|:--:|:--:|
+| [previous document][step_1] | [main document][main_doc] | [step-by-step document][step-by-step] | [next document][step_3] |
+|:--:|:--:|:--:|:--:|
 
 ## 2. Day-0: Deploy the SUPERADMIN organization
 
@@ -70,8 +70,8 @@ After running the Job, the webhook will already be configured at the git reposit
 |:--:|
 | **Fig. 2.2.2.3. Configure Webhook Result** |
 
-| [previous document][step_1] | [main document][main_doc] | [next document][step_3] |
-|:--:|:--:|:--:|
+| [previous document][step_1] | [main document][main_doc] | [step-by-step document][step-by-step] | [next document][step_3] |
+|:--:|:--:|:--:|:--:|
 
 [configure_webhook_get_config]: images/configure_webhook_get_config.png
 [configure_webhook_named_url]: images/configure_webhook_named_url.png
@@ -82,5 +82,6 @@ After running the Job, the webhook will already be configured at the git reposit
 
 [step_1]: README_step_1.md
 [main_doc]: README.md
+[step-by-step]: README_step_by_step.md
 [step_3]: README_step_3.md
 

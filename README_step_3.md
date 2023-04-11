@@ -1,5 +1,5 @@
-| [previous document][step_2] | [main document][main_doc] |
-|:--:|:--:|
+| [previous document][step_2] | [main document][main_doc] | [step-by-step document][step-by-step] |
+|:--:|:--:|:--:|
 
 ## 3. Day-2: Create a new Organization
 
@@ -134,8 +134,8 @@ The configuration is almost the same shown at [2.2. Configure the GitLab Webhook
 |:--:|
 | **Fig. 3.5.1. Configure Webhook for the NewOrg Organization** |
 
-| [previous document][step_2] | [main document][main_doc] |
-|:--:|:--:|
+| [previous document][step_2] | [main document][main_doc] | [step-by-step document][step-by-step] |
+|:--:|:--:|:--:|
 
 [gitlab_project_creation_jt]: images/gitlab_project_creation_jt.png
 [gitlab_project_creation_launch]: images/gitlab_project_creation_launch.png
@@ -146,3 +146,4 @@ The configuration is almost the same shown at [2.2. Configure the GitLab Webhook
 
 [step_2]: README_step_2.md
 [main_doc]: README.md
+[step-by-step]: README_step_by_step.md

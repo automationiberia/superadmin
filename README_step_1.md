@@ -1,5 +1,5 @@
-| [main document][main_doc] | [next document][step_2] |
-|:--:|:--:|
+| [main document][main_doc] | [step-by-step document][step-by-step] | [next document][step_2] |
+|:--:|:--:|:--:|
 
 ## 1. Customize the SUPERADMIN organization objects
 
@@ -179,8 +179,9 @@ Other important files to be configured are in the following directories:
   ...
   ```
 
-  | [main document][main_doc] | [next document][step_2] |
-  |:--:|:--:|
+| [main document][main_doc] | [step-by-step document][step-by-step] | [next document][step_2] |
+|:--:|:--:|:--:|
 
 [main_doc]: README.md
+[step-by-step]: README_step_by_step.md
 [step_2]: README_step_2.md
