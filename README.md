@@ -65,7 +65,7 @@ The directory structure along the git features will help to promote the configur
 
 To Continuously reconciled, a schedule object type is used to observe actual configuration state (objects list from API) and to attempt to apply the desired configuration (Objects list from the git repository).
 
-![Alt text](images/CasC_Flow_Chart.png?raw=true "CasC Flow Chart"){: style="float: right"; margin-right: 10em; height="25%" width="25%"}
+![Alt text](images/CasC_Flow_Chart.png?raw=true "CasC Flow Chart")
 
 ## How to manage Ansible Automation Controller life cycle configuration?
 
