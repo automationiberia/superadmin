@@ -1,6 +1,6 @@
 layout: page
-title: "PAGE-TITLE"
-permalink: /URL-PATH
+title: "Automation Controller configuration Continuous Deployment with CasC"
+permalink: /docs
 
 # superadmin
 
