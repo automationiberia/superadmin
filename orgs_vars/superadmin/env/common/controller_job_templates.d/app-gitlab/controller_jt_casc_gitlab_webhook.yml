@@ -30,8 +30,8 @@ controller_templates:
           max: 1024
           choices:
             - "https://gitlab.com"
-            - "http://ivan-gitlabrunner.bcnconsulting.com"
             - "https://gitlab.bcnconsulting.com"
+            - "http://gitlabrunner.bcnconsulting.com"
           default: "https://gitlab.com"
           new_question: true
 
