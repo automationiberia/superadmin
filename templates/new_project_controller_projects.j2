@@ -1,11 +1,11 @@
 ---
 controller_projects:
-  - name: "{{ orgs }} CasC_Data"
-    description: "Project to include the vars values of the {{ orgs }} Org"
+  - name: "{{ organization_name }}-CASC-DATA"
+    description: "Project to manage the CasC of the {{ orgs }} Org"
     organization: "{{ orgs }}"
     scm_type: git
-    scm_url: "https://github.com/automationiberia/superadmin.git"
-    scm_credential: "{{ orgs }} {{ env }} Gitlab Credential"
+    scm_url: "git@xcpm1idas000.adgbs.bancsabadell.com:aaporgs/ansible-controller/superadmin.git"
+    scm_credential: "{{ orgs }}-{{ env }}-GITLAB-CREDENTIAL"
     scm_branch: "{{ casc_gitlab_scm_branch | default(env) }}"
     scm_clean: false
     scm_delete_on_update: false

@@ -2,10 +2,10 @@
 controller_roles:
   - user: "user1"
     organizations:
-      - "casc_testathon_user1"
+      - "casc_org1"
     role: admin
   - user: "user2"
     organizations:
-      - "casc_testathon_user2"
+      - "casc_org2"
     role: admin
 ...

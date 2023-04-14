@@ -117,6 +117,5 @@
         validate_certs: "{{ controller_validate_certs }}"
         status_code: 204
       when: controller_oauthtoken_url is defined
-
-#  ansible-navigator run enable_disable_schedules.yml -i inventory -l dev-site1 -m stdout --eei automationhub.bcnconsulting.com/ee-casc:latest --pull-arguments=--tls-verify=false --vault-password-file .vault_password -e '{controller_inventory_site_is_active: site1}'
 ...
+# ansible-navigator run enable_disable_schedules.yml -i inventory -l dev-site1 -m stdout --eei automationhub.bcnconsulting.com/ee-casc:latest --pull-arguments=--tls-verify=false --vault-password-file .vault_password -e '{controller_inventory_site_is_active: site1}'

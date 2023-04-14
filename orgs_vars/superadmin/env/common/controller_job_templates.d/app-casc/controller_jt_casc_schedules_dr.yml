@@ -24,7 +24,7 @@ controller_templates:
     execution_environment: "ee-casc"
     survey_enabled: True
     survey_spec:
-      name: 'Survey_Schedules_Enable_Disable'
+      name: '{{ orgs }} Survey_Schedules_Enable_Disable'
       description: 'Survey_Gitlab_Project_Creation'
       spec:
         - question_name: "Controller schedules list to exclude"

@@ -1,0 +1,62 @@
+---
+controller_templates:
+  - name: "{{ organization_name }}-CASC-CTRL-CD-WEBHOOK-TRIGGER"
+    description: "Template to attend Controller CasC webhook"
+    organization: "{{ orgs }}"
+    project: "{{ organization_name }}-CASC-DATA"
+    inventory: "{{ orgs }}-CONTROLLER"
+    playbook: "central_casc_ctrl_cd_webhook_trigger.yml"
+    job_type: run
+    fact_caching_enabled: false
+    credentials:
+      - "{{ orgs }}-{{ env }}-AAP-CREDENTIAL"
+    webhook_service: "gitlab"
+    concurrent_jobs_enabled: true
+    ask_scm_branch_on_launch: true
+    extra_vars:
+      ansible_python_interpreter: /usr/bin/python3
+      ansible_async_dir: /home/runner/.ansible_async/
+    execution_environment: "EE-CASC"
+  - name: "{{ organization_name }}-CASC-CTRL-CONFIG-UNIFIED"
+    description: "Template to attend Controller CasC Configuration"
+    organization: "{{ orgs }}"
+    project: "{{ organization_name }}-CASC-DATA"
+    inventory: "{{ orgs }}-CONTROLLER"
+    playbook: "casc_ctrl_config_unified.yml"
+    job_type: run
+    fact_caching_enabled: false
+    credentials:
+      - "{{ organization_name }}-{{ env }}-AAP-CREDENTIAL"
+      - "{{ organization_name }}-{{ env }}-VAULT-CREDENTIAL"
+      - "{{ organization_name }}-{{ env }}-GITLAB-API-TOKEN"
+    concurrent_jobs_enabled: true
+    ask_scm_branch_on_launch: true
+    ask_tags_on_launch: true
+    ask_verbosity_on_launch: true
+    ask_variables_on_launch: true
+    extra_vars:
+      ansible_python_interpreter: /usr/bin/python3
+      ansible_async_dir: /home/runner/.ansible_async/
+    execution_environment: "EE-CASC"
+  - name: "{{ organization_name }}-CASC-CTRL-DROP-DIFF-UNIFIED"
+    description: "Template to attend Controller CasC Drop Diff"
+    organization: "{{ orgs }}"
+    project: "{{ organization_name }}-CASC-DATA"
+    inventory: "{{ orgs }}-CONTROLLER"
+    playbook: "casc_ctrl_drop_diff_unified.yml"
+    job_type: run
+    fact_caching_enabled: false
+    credentials:
+      - "{{ organization_name }}-{{ env }}-AAP-CREDENTIAL"
+      - "{{ organization_name }}-{{ env }}-VAULT-CREDENTIAL"
+      - "{{ organization_name }}-{{ env }}-GITLAB-API-TOKEN"
+    webhook_service: "gitlab"
+    concurrent_jobs_enabled: true
+    ask_scm_branch_on_launch: true
+    ask_tags_on_launch: true
+    ask_variables_on_launch: true
+    extra_vars:
+      ansible_python_interpreter: /usr/bin/python3
+      ansible_async_dir: /home/runner/.ansible_async/
+    execution_environment: "EE-CASC"
+...

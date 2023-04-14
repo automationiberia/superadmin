@@ -6,6 +6,7 @@ ignore: |
   group_vars/*/configure_connection_controller_credentials.yml
   group_vars/*/vault
   orgs_vars/*/env/*/controller_credentials.d/
+  orgs_vars/*/env/*/controller_users.d/
   orgs_vars/*/env/*/controller_settings.d/authentication/controller_settings_ldap.yml
 
 yaml-files:

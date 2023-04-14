@@ -2,11 +2,11 @@
 - hosts: localhost
   connection: local
   gather_facts: false
-  vars:
+  # vars:
   tasks:
     - name: "Remove GitLab Project if it is requiered"
       vars:
-        gitlab_project: "casc_testathon_{{ user_item.gitlab_user }}"
+        gitlab_project: "casc_{{ user_item.gitlab_user }}"
       community.general.gitlab_project:
         state: absent
         api_url: "{{ gitlab_api_url }}"
@@ -21,7 +21,7 @@
 
     - name: Apply gitlab_setup tasks
       vars:
-        gitlab_project: "casc_testathon_{{ user_item.gitlab_user }}"
+        gitlab_project: "casc_{{ user_item.gitlab_user }}"
       ansible.builtin.include_tasks:
         file: gitlab_setup.yml
         apply:
@@ -39,7 +39,7 @@
         api_url: "{{ gitlab_api_url }}"
         validate_certs: "{{ gitlab_validate_certs }}"
         api_token: "{{  gitlab_api_token }}"
-        project: "casc_testathon_{{ user_item.gitlab_user }}"
+        project: "casc_{{ user_item.gitlab_user }}"
         gitlab_user: "{{ user_item.gitlab_user }}"
         access_level: maintainer
         state: present
@@ -54,8 +54,8 @@
 #        username: "{{ user_gmail }}"
 #        password: "{{ pass_gmail }}"
 #        to: "{{ user_item.email }}"
-#        subject: CasC Testathon instructions
-#        body: "Your repository in gitlab is {{ gitlab_api_url }}/{{ gitlab_group }}/{{ gitlab_subgroup }}/casc_testathon_{{ user_item.gitlab_user }}. Follow the instructions which you have in README."
+#        subject: CasC instructions
+#        body: "Your repository in gitlab is {{ gitlab_api_url }}/{{ gitlab_group }}/{{ gitlab_subgroup }}/casc_{{ user_item.gitlab_user }}. Follow the instructions which you have in README."
 #      loop: "{{ users }}"
 #      loop_control:
 #        loop_var: user_item

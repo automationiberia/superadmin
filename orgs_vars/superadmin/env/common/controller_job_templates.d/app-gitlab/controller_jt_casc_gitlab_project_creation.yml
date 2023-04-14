@@ -18,7 +18,7 @@ controller_templates:
     execution_environment: "ee-casc"
     survey_enabled: True
     survey_spec:
-      name: 'Survey_Gitlab_Project_Creation'
+      name: '{{ orgs }} Survey_Gitlab_Project_Creation'
       description: 'Survey_Gitlab_Project_Creation'
       spec:
         - question_name: automation_hub
@@ -77,10 +77,10 @@ controller_templates:
           min: 0
           max: 1024
           choices:
-            - "CasC-Testathon"
+            - "CasC"
             - "acme"
             - "test-group"
-          default: "CasC-Testathon"
+          default: "CasC"
           new_question: true
 
         - question_name: gitlab_subgroup

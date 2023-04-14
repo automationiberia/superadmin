@@ -1,0 +1,64 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: "Assert that the required input variables are defined"
+      ansible.builtin.assert:
+        that: "{{ current_check.conditions }}"
+        fail_msg: "{{ current_check.fail_msg }}"
+        quiet: true
+      loop_control:
+        loop_var: current_check
+        label: "Check the required variable {{ current_check.conditions[0] }}"
+      loop:
+        - conditions:
+            - organization_name is defined
+            - organization_name | length > 0
+          fail_msg: "the 'organization_name' variable must be defined"
+        - conditions:
+            - organization_desc is defined
+            - organization_desc | length > 0
+          fail_msg: "the 'organization_desc' variable must be defined to give a description to the organization"
+        - conditions:
+            - instance_groups is defined
+            - instance_groups | type_debug is match('list')
+            - instance_groups | length > 0
+          fail_msg: "the 'instance_groups' variable must be defined and can't be empty"
+        - conditions:
+            - admin_user is defined
+            - admin_user | length > 0
+          fail_msg: "the 'admin_user' variable must be defined"
+
+    - name: "Create all the required objects"
+      ansible.builtin.template:
+        src: "{{ current_file.src }}"
+        dest: "{{ current_file.dest }}"
+        mode: '0644'
+      loop_control:
+        loop_var: current_file
+        label: "Creating the file {{ current_file.dest }}"
+      loop:
+        - src: "templates/new_project_controller_organizations.j2"
+          dest: "{{ orgs_vars }}/{{ orgs }}/env/common/controller_organizations.d/{{ organization_name }}.yml"
+        - src: "templates/new_project_controller_projects.j2"
+          dest: "{{ orgs_vars }}/{{ orgs }}/env/common/controller_projects.d/{{ organization_name }}_casc.yml"
+        - src: "templates/new_project_controller_job_templates.j2"
+          dest: "{{ orgs_vars }}/{{ orgs }}/env/common/controller_job_templates.d/{{ organization_name }}_casc.yml"
+        - src: "templates/new_project_controller_credentials.j2"
+          dest: "{{ orgs_vars }}/{{ orgs }}/env/{{ env }}/controller_credentials.d/{{ organization_name }}_casc.yml"
+        - src: "templates/new_project_controller_roles.j2"
+          dest: "{{ orgs_vars }}/{{ orgs }}/env/common/controller_roles.d/{{ organization_name }}.yml"
+    - name: "Show manual steps"
+      debug:
+        msg:
+          - "Remember to:"
+          - "  - Add the user {{ admin_user }} manually at orgs_vars/SUPERADMIN/env/{{ env }}/controller_users.d/controller_user_accounts.yml"
+...
+####
+# Running examples:
+#### Using ansible-playbook
+# ansible-playbook new_project.yml -e '{organization_name: TESTORG, organization_desc: "TESTORG Organization", instance_groups: [MADRID], admin_user: "testorgadminuser", orgs_vars: "orgs_vars", orgs: SUPERADMIN, env: PRE, casc_gitlab_scm_branch: centralize_casc}'
+#### Using ansible-navigator
+# ansible-navigator run new_project.yml -i localhost, -m stdout --eei xcum2idas010.pre.npro.onpremise.es.bs/ee-casc:latest -e '{organization_name: TESTORG, organization_desc: "TESTORG Organization", instance_groups: [MADRID], admin_user: "testorgadminuser", orgs_vars: "orgs_vars", orgs: SUPERADMIN, env: PRE, casc_gitlab_scm_branch: centralize_casc}' --vault-password-file .vault_password --pa='--tls-verify=false'
+####

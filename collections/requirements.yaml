@@ -1,0 +1,8 @@
+---
+collections:
+  # Using redhat_cop instead of infra because we are in development phase
+  - name: redhat_cop.controller_configuration
+  # redhat_cop.controller_configuration has been replaced by infra.controller_configuration
+  # - name: infra.controller_configuration
+  - name: automationiberia.casc_setup
+...

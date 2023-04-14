@@ -5,7 +5,8 @@ controller_projects:
     organization: "{{ orgs }}"
     scm_type: git
     scm_url: "https://github.com/automationiberia/casc_setup.git"
-    scm_branch: testathon
+    scm_credential: "{{ orgs }} {{ env }} Gitlab Credential"
+    scm_branch: main
     scm_clean: false
     scm_delete_on_update: false
     scm_update_on_launch: false

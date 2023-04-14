@@ -24,7 +24,7 @@
         port: "{{ smtpport }}"
         secure: "starttls"
         from: "{{ mailfrom }}"
-        subject: "Testathon instructions for {{ current_receiver.0.firstname }} {{ current_receiver.0.lastname }}"
+        subject: "Instructions for {{ current_receiver.0.firstname }} {{ current_receiver.0.lastname }}"
         to: "{{ current_receiver.0.email }}"
         cc: "{{ fixed_receivers }}"
         subtype: html
@@ -34,47 +34,42 @@
             <head>
               <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
               <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-              <title>Testathon instructions for {{ current_receiver.0.firstname }} {{ current_receiver.0.lastname }}</title>
+              <title>Instructions for {{ current_receiver.0.firstname }} {{ current_receiver.0.lastname }}</title>
             </head>
             <body>
               Hello {{ current_receiver.0.firstname }} {{ current_receiver.0.lastname }},<br/><br/>
 
-              The Testathon Team (we) will be available at the following Google Meet event to attend your doubts or help you where you need:<br/>
+              The Team (we) will be available at the following Google Meet event to attend your doubts or help you where you need:<br/>
 
               <p style="margin-left:30px;">
-                Testathon CasC - AAP<br/>
+                CasC - AAP<br/>
                 Wednesday, November 30 · 10:00am – 5:00pm<br/>
                 Google Meet joining info<br/>
-                Video call link: https://meet.google.com/event-testathon<br/>
-                Or dial: ‪(ES) +34 872 55 89 20‬ PIN: ‪626 187 579‬#<br/>
-                More phone numbers: https://tel.meet/event-testathon?pin=1234567890<br/>
-                Or join via SIP: sip:2388257847620@gmeet.lab.example.com<br/>
+                Video call link: https://meet.google.com/event-identification<br/>
+                Or dial: ‪(ES) +34 xxx xxx xxx‬ PIN: ‪xxx xxx xxx‬#<br/>
+                More phone numbers: https://tel.meet/event-identification?pin=1234567890<br/>
+                Or join via SIP: sip:1234567890123@gmeet.lab.example.com<br/>
               </p>
 
-              Here you will find the instructions for your Testathon environment (<font style="color:red">The lab environment will be available till Friday 2nd</font>):<br/>
+              Here you will find the instructions for your environment (<font style="color:red">The lab environment will be available till Friday 2nd</font>):<br/>
               <p style="margin-left:30px">
-                <a href="https://gitlab.com/casc-testathon/20221130/casc_testathon_{{ current_receiver.0.username }}">
-                  https://gitlab.com/casc-testathon/20221130/casc_testathon_{{ current_receiver.0.username }}
+                <a href="https://gitlab.com/casc_{{ current_receiver.0.username }}">
+                  https://gitlab.com/casc_{{ current_receiver.0.username }}
                 </a><br/>
               </p>
 
               Your credentials to connect to your Red Hat Automation Controller instance follows:<br/>
                 <li><b>Dev Environment:</b>&nbsp;
-                  controller-dev-testathon-ansible-automation-platform.apps.cluster-2drjc.2drjc.sandbox2634.opentlc.com
+                  controller-dev-ansible-automation-platform.apps.cluster-2drjc.2drjc.sandbox2634.opentlc.com
                   <pre>{{ current_receiver.0.username }} / {{ current_receiver.0.password }}</pre></li>
                 <li><b>Pro Environment:</b>&nbsp;
-                  controller-prd-testathon-ansible-automation-platform.apps.cluster-2drjc.2drjc.sandbox2634.opentlc.com
+                  controller-prd-ansible-automation-platform.apps.cluster-2drjc.2drjc.sandbox2634.opentlc.com
                   <pre>{{ current_receiver.0.username }} / {{ current_receiver.1.password }}</pre></li>
 
-              You can find a video with the explanation of this testathon at Youtube: https://www.youtube.com/watch?v=1IYQ8rYlKFI&t=3139s<br/><br/>
+              You can find a video with the explanation of this CasC at Youtube: https://www.youtube.com/watch?v=1IYQ8rYlKFI&t=3139s<br/><br/>
 
-              You can provide feedback at the following document:<br/>
-              <p style="margin-left:30px">
-                <a href="https://quicklink.th/IberiaTestathon-CasCforAutomationController">https://quicklink.th/IberiaTestathon-CasCforAutomationController</a><br/>
-              </p>
-
-              Have a good Testathon!!!<br/>
-              Testathon Team
+              Have a good day!!!<br/>
+              CasC Team
             </body>
           </html>
 ...

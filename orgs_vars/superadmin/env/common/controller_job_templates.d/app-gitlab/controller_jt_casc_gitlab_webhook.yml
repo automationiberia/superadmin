@@ -19,7 +19,7 @@ controller_templates:
     execution_environment: "ee-casc-sites"
     survey_enabled: True
     survey_spec:
-      name: 'Survey_Gitlab_Webhook_Creation'
+      name: '{{ orgs }} Survey_Gitlab_Webhook_Creation'
       description: 'Survey_Gitlab_Webhook_Creation'
       spec:
         - question_name: gitlab_api_url
@@ -42,10 +42,10 @@ controller_templates:
           min: 0
           max: 1024
           choices:
-            - "CasC-Testathon"
+            - "CasC"
             - "acme"
             - "test-group"
-          default: "CasC-Testathon"
+          default: "CasC"
           new_question: true
 
         - question_name: gitlab_subgroup

@@ -1,4 +1,4 @@
-collections/
+collections/ansible_collections
 users.csv
 users_old.csv
 .vault_password
@@ -8,3 +8,5 @@ ansible-navigator.log
 inventory_bastions
 list
 p.yml
+id_rsa*
+venv
