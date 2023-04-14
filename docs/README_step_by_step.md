@@ -1,13 +1,12 @@
-
 | [main document][main_doc] | [next document][step_1] |
-|:--:|:--:|
+|:---:|:---:|
 
 # SUPERADMIN Organization Guide
 
 The SUPERADMIN organization is intended to centralize all the other organizations' Configuration as Code (CasC or CaC) and, at the same time, to manage the main configuration of the AAP settings.
 
 | ![Overview Diagram][overview_diagram] |
-|:--:|
+|:---:|
 | **Fig. 1. Overview Diagram** |
 
 In the current document, all the tasks needed to do so are explained step by step to ease it's comprehension and utilization.
@@ -22,7 +21,7 @@ In the current document, all the tasks needed to do so are explained step by ste
 [README_step_3]: README_step_3.md
 
 | [main document][main_doc] | [next document][step_1] |
-|:--:|:--:|
+|:---:|:---:|
 
 [main_doc]: README.md
 [step_1]: README_step_1.md
