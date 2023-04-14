@@ -3,7 +3,7 @@
 
 ## 1. Customize the SUPERADMIN organization objects
 
-The first settings to be customized are the credentials to reach the Ansible Automation Controller to be configured. This configuration is done at the following `ansible-vault`ed file:
+The first settings to be configured are the credentials to reach the Ansible Automation Controller. This configuration is done at the following `ansible-vault`ed file:
 
 ```yaml
 ---
