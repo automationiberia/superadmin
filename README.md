@@ -1,6 +1,6 @@
 # superadmin
 
-One of the main reasons to adopt Configuration as Code (CasC) is the flexibility what does it bring, which allow to replicate the configuration between environments, sites or where ever you need. Most customers normally use database replication to copy the data from one environment to another, and importing that data to another Ansible Automation Platform site, but that approach could have many downsides like more dedicated infrastructure, specialized teams to handle it and pretty complex procedures to switching the active site, that might affect the consistency across multiple environments or sites.
+One of the main reasons to adopt Configuration as Code (CasC) is the flexibility what it bring, which allow to replicate the configuration between environments, sites or where ever you need. Most customers normally use database replication to copy the data from one environment to another, and importing that data to another Ansible Automation Platform site, but that approach could have many downsides like more dedicated infrastructure, specialized teams to handle it and pretty complex procedures to switching the active site, that might affect the consistency across multiple environments or sites.
 
 ## But, how to fit Automation Controller and CasC?
 There are a lot of approach to do it, but there already are ansible collections that provide what is necessary to carry out this implementation. Let's check the below diagram:
@@ -9,7 +9,7 @@ Red Hat Communities of Practice Controller Configuration Collection
 ----------
 ![Alt text](images/collections_used.png?raw=true "Red Hat Communities of Practice Controller Configuration Collection")
 
-The basis to configure an Automation Controller through a Configuration as Code approach relays in two ansible collections:
+The basis to configure an Automation Controller through a Configuration as Code approach relies in two ansible collections:
 
 * **AWX / Ansible.Controller**: which is a collection that brings together all the modules and Ansible content related to the management of the AWX/Controller. It provides modules to connect and manage all objects of the AWX/Controller, however it does not have functionalities to use it in a scalable way.
 
@@ -33,7 +33,7 @@ The first thing that needs to be defined, should be where the configuration will
 Having said that, the following questions must be answered:
 
 - Where should be stored?
-  - As configuration must be versioned and inmutable, git repositories are perfect for it. Also it could be leverage git features, practices and methodologies to be applied in the configuration, that must start treat it as Code.
+  - As configuration must be versioned and inmutable, git repositories are perfect for it. Also it could be leveraged of git features, practices and methodologies to be applied in the configuration, that must start treat it as Code.
 - How to structure it?
   - A directory structure will provide flexibility and scalability to organize in a logical manner the configuration.
 - How do we handle sensitive data?
@@ -41,11 +41,11 @@ Having said that, the following questions must be answered:
 
 It is recommended to create one git repository per organization, but the solution allows to have more than one organization per repository in case needed. However, it is strongly recommended to have just one super admin organization to manage objects that should only have access a privileged group of users, who must have the right Ansible Automation Platform expertise to handle the configuration.
 
-To handle the environments it could be leverage branches git features, as it can be seen in the below diagram, each repository must have a branch that must match the environment to which it belongs.
+To handle the environments it could leverage branches git features, as it can be seen in the below diagram, each repository must have a branch that must match the environment to which it belongs.
 
 ![Alt text](images/repository_structure.png?raw=true "Repository Organization Structure for CasC")
 
-The directory structure is created to match up objects by environment to be able to reuse them and avoid the principle of software development don't repeat yourself (DRY). But there are objects that are unique and must be differentiated. As said before,   the configuration should start treating as Code or a piece of software, that is why it could be leverage software development techniques, or even use variables. In the below diagram, is graphical explain it how it could be organized.
+The directory structure is created to match up objects by environment to be able to reuse them and avoid the principle of software development don't repeat yourself (DRY). But there are objects that are unique and must be differentiated. As said before,   the configuration should start treating as Code or a piece of software, that is why it could be leverage software development techniques, or even use variables.The following diagram explains graphically how it could be organized.
 
 ![Alt text](images/directory_structure.png?raw=true "Directory Structure for CasC")
 
@@ -57,7 +57,7 @@ The directory structure along the git features will help to promote the configur
 
 1. The flow starts when configuration files are modified or added to an Organization git repository in the Development branch.
 2. An event is generated in the SCM when a commit has been made and the changes has been uploaded to the git repository.
-3. The git event has been send through a git webhook payload, with all the information related to the commit: Files and its path that were add, modified or deleted, organization from where the changes has being made, etc.
+3. The git event has been send through a git webhook payload, with all the information related to the commit: Files and its path that were add, modified or deleted, organization from where the changes has been made, etc.
 4. A Workflow Job Template is being used to capture the data that has been sent from the git webhook payload and execute two tasks:
   - Project sync, which will do a git clone, and depending on whether it needs to download any collections or roles that it doesn't have in the execution environment, it will do so at this point.
   - The data sent through the payload is processed and converted into yaml/json format to be added as Extra Vars in the Job_Template object.
@@ -73,7 +73,7 @@ As said before, git approach, methodologies and features are the bare bone of th
 
 The main idea is always create temporary branches from the development branch to add, modify or delete controller's configuration, and once it is tested it could be promoted to the following environments .
 
-As it it could be seen in the below diagram, start on Day Zero creating a temporary branch where it will be added the basic objects to start applying the configuration in the controller. These objects ar: projects, credentials, job_templates, workflow_job_templates, inventories, hosts.
+As it could be seen in the below diagram, start on Day Zero creating a temporary branch where it will be added the basic objects to start applying the configuration in the controller. These objects are: projects, credentials, job_templates, workflow_job_templates, inventories, hosts.
 
 
 ![Alt text](images/CasC_Life_Cycle.png?raw=true "CasC Life Cycle")
@@ -82,7 +82,7 @@ Once the configuration is applied and tested in development environment, it coul
 
 The main idea of the flow would be test everything in previous environments before applying it in a productive environment, to avoid errors that lead to loss of service, platform instability, inconsistency, etc.
 
-In case need it, Git features could be leveraged to rollback a configuration to a specific point in time, or in this case a specific release. Git features Tags / Releases will be used to create in the productive branch a "Photo" of the moment in which our configuration is safe to promote it to production. In such case that a failure/bug arise in our code/configuration, it could simply be used Tags/Releases, to rollback to that point where the configuration works correctly.
+In case need it, Git features could be leveraged to rollback a configuration to a specific point in time, or in this case a specific release. Git features Tags / Releases will be used to create in the productive branch a "Snapshot" of the moment in which our configuration is safe to promote it to production. In such case that a failure/bug arise in our code/configuration, it could simply be used Tags/Releases, to rollback to that point where the configuration works correctly.
 
 ## How does it work in a Multi site Active-Passive Architecture?
 
@@ -95,8 +95,8 @@ In a Multi site Active / Passive architecture, it must be considered where the a
 To manage it, it has been proposed the use of variables to hook up where the execution is being done and to determine which is the active site:
 
   - __**Environment variable in the Execution Environment**__: which is used to determine where the execution has been carried out. As we are working with containers, this variable will be immutable allows us to anchor that variable to the site from where execution is performed.
-  - __**Variable to determine which is the active site**__: This variable can be obtained from several places. In above the diagram, it is described two scenarios that have been tested.
-    - __Controller Objects__: In this scenario, the variable will be retrieve from the git repository in the superadmin organization, so a team with superpowers will control which will be the active site. The objects where this variable could be added are:
+  - __**Variable to determine which is the active site**__: This variable can be obtained from several places. In the diagram above, it is described two scenarios that have been tested. The objects where this variable could be added are:
+    - __Controller Objects__: In this scenario, the variable will be retrieve from the git repository in the superadmin organization, so a team with superpowers will control which will be the active site.
     - __Inventory__: The variable could be added in the Inventory and permissions can be given to the organizations that will consume the CasC.
     - __Settings__: It is possible to add it in the Extra vars of the jobs in the settings, to have it globally and to be used by all organizations.
     - __Load Balancer Header__: As a key element of the AAP  active/passive architecture and as a third actor of the equation APP arch = (Automation Controller + git repository + LB), it makes sense to add the value of that variable as header in the Load Balancer configuration to reduce the single point of failures and steps in case of maintenance or Disaster Recovery actions, where it should be redirected requests to switch sites and another step is added  which is set the header with the value of the active site. To get the value it is done it in the corresponding flow playbooks to change the behavior when apply/modify/delete Controller's objects.
@@ -109,7 +109,7 @@ In an active/passive architecture automation executions must be carried out only
 
 Basically there are two approach that it should be considered when a active/passive scenario comes in:
 
-  - __**CasC Automation**__:in this scenario the automation must executed in both sites, so we are speaking to be Active/Active scenario since its main function is to replicate the configuration between sites. In this approach two important considerations must be highlight:
+  - __**CasC Automation**__:in this scenario the automation must executed in both sites, so we are talking about an Active/Active scenario since its main function is to replicate the configuration between sites. In this approach two important considerations must be highlight:
     - __Different Objects values depending on site where should be applied__. For instance, Objects like execution environments that should point to different Automation Hub depending on the site, or credentials,  with the specific case of the automation hub which generates a token that cannot be duplicated.
     - __Controller_Location__: This variable could be add to the specific environment controller object that needs to be differentiated depending on the site.  To treat this a filter has been added to the ansible role filetree_read from the ansible collection redhat_cop.controller_configuration. This variable will set the location of a object allowing it to be created with different values depend on the site that needs to be created, providing the flexibility of managing multiple sites with the same configuration.
     - __Webhooks__: To automatically trigger the creation, modification or deletion of objects in the controller, webhooks has been used and it must be configured one per environment and per site, pointing to the controller load balancer based in each site, so the configuration will be applied to both sites when is triggered.
