@@ -1,6 +1,6 @@
 # superadmin
 
-One of the main reasons to adopt Configuration as Code (CasC) is the flexibility what it bring, which allow to replicate the configuration between environments, sites or where ever you need. Most customers normally use database replication to copy the data from one environment to another, and importing that data to another Ansible Automation Platform site, but that approach could have many downsides like more dedicated infrastructure, specialized teams to handle it and pretty complex procedures to switching the active site, that might affect the consistency across multiple environments or sites.
+One of the main reasons to adopt Configuration as Code (CasC) is the flexibility that it brings, which allow to replicate the configuration between environments, sites or where ever you need. Most customers normally use database replication to copy the data from one environment to another, and importing that data to another Ansible Automation Platform site, but that approach could have many downsides like more dedicated infrastructure, specialized teams to handle it and pretty complex procedures to switching the active site, that might affect the consistency across multiple environments or sites.
 
 ## But, how to fit Automation Controller and CasC?
 There are a lot of approach to do it, but there already are ansible collections that provide what is necessary to carry out this implementation. Let's check the below diagram:
