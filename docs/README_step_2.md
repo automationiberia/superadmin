@@ -10,7 +10,7 @@ Once all the objects are already configured, they can be populated for the first
 Run the following command:
 
 ```bash
-$ ansible-navigator run casc_ctrl_config.yml -i inventory -l pre -e '{orgs: superadmin, dir_orgs_vars: orgs_vars, env: pre}' -m stdout --eei <AH.HOST>/ee-casc:latest --vault-password-file .vault_password --pull-arguments=--tls-verify=false
+$ ansible-navigator run casc_ctrl_config.yml -i inventory -l dev -e '{orgs: superadmin, dir_orgs_vars: orgs_vars, env: dev}' -m stdout --eei <AH.HOST>/ee-casc:latest --vault-password-file .vault_password --pull-arguments=--tls-verify=false
 ```
 
 > TIP: The file `.vault_password` used in the previous command, must exist and contain the vault password needed to access the vaulted variables
@@ -54,7 +54,7 @@ Following steps must be performed to configure the GitLab Webhook to run the Con
 
 #### 2.2.2. Automatically
 
-A Job Template and a Project have been created to automatically configure the GitLab Webhook making use of the `GitLab API Token` credential defined and vaulted in the configuration files (take a look at [`orgs_vars/superadmin/env/pre/controller_credentials.d/controller_credentials_gitlab_api_token.yml`](orgs_vars/superadmin/env/pre/controller_credentials.d/controller_credentials_gitlab_api_token.yml)):
+A Job Template and a Project have been created to automatically configure the GitLab Webhook making use of the `GitLab API Token` credential defined and vaulted in the configuration files (take a look at [`orgs_vars/superadmin/env/dev/controller_credentials.d/controller_credentials_gitlab_api_token.yml`](orgs_vars/superadmin/env/dev/controller_credentials.d/controller_credentials_gitlab_api_token.yml)):
 
 | ![Configure Webhook Launch][configure_webhook_launch] |
 |:--:|
