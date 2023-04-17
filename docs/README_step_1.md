@@ -96,21 +96,21 @@ Other important files to be configured are in the following directories:
     - name: "superadmin"
       description: "Organization for objects that requiere superadmin powers"
       galaxy_credentials:
-        - "{{ orgs }}-{{ env }}-PAH-Community-Repository"
-        - "{{ orgs }}-{{ env }}-PAH-Published-Repository"
-        - "{{ orgs }}-{{ env }}-PAH-RH-Certified-Repository"
+        - "{{ orgs }} {{ env }} {{ controller_location }} Automation Hub Community Repository"
+        - "{{ orgs }} {{ env }} {{ controller_location }} Automation Hub Published Repository"
+        - "{{ orgs }} {{ env }} {{ controller_location }} Automation Hub RH Certified Repository"
   ...
   ```
 * `orgs_vars/superadmin/env/common/controller_projects.d`: Configuration files for the projects to be defined into our organization:
   ```yaml
   ---
   controller_projects:
-    - name: "{{ orgs }}-CASC-Data"
+    - name: "{{ orgs }} CasC_Data"
       description: "Project to include the CasC playbooks"
       organization: "{{ orgs }}"
       scm_type: git
-      scm_url: "git@{{ gitlab_hostname }}:git/path/to/casc-repository.git"
-      scm_credential: "{{ orgs }}-{{ env }}-GitLab-Credential"
+      scm_url: "git@github.com:automationiberia/controller-casc-cd.git"
+      scm_credential: "{{ orgs }} {{ env }} GitLab Credential"
       scm_branch: "{{ casc_gitlab_scm_branch | default(env) }}"
       scm_clean: false
       scm_delete_on_update: false
@@ -121,8 +121,8 @@ Other important files to be configured are in the following directories:
     - name: "{{ orgs }}-CASC-GitLab-Webhook"
       description: "Project to include playbooks to configure the GitLab Webhooks for the CasC to be able to run"
       organization: "{{ orgs }}"
-      scm_url: "git@{{ gitlab_hostname }}:git/path/to/gitlab-repository.git"
-      scm_credential: "{{ orgs }}-{{ env }}-GitLab-Credential"
+      scm_url: "git@github.com:automationiberia/casc_setup.git"
+      scm_credential: "{{ orgs }} {{ env }} GitLab Credential"
       scm_branch: main
       scm_clean: false
       scm_delete_on_update: false
