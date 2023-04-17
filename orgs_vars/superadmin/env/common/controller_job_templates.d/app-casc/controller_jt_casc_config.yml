@@ -3,7 +3,7 @@ controller_templates:
   - name: "{{ orgs }} JT_CasC_Ctrl_Config"
     description: "Template to deploy Controller objects in Org {{ orgs }}"
     organization: "{{ orgs }}"
-    project: "{{ orgs }} CasC_Data"
+    project: "{{ orgs }} CasC Data"
     inventory: "{{ orgs }} Controller"
     playbook: "casc_ctrl_config.yml"
     job_type: run
@@ -23,7 +23,7 @@ controller_templates:
   - name: "{{ orgs }} CasC_Ctrl_Config_Unified"
     description: "Template to deploy Controller objects in Org {{ orgs }}"
     organization: "{{ orgs }}"
-    project: "{{ orgs }} CasC_Data"
+    project: "{{ orgs }} CasC Data"
     inventory: "{{ orgs }} Controller"
     playbook: "casc_ctrl_config_unified.yml"
     job_type: run

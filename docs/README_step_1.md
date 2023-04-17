@@ -105,7 +105,7 @@ Other important files to be configured are in the following directories:
   ```yaml
   ---
   controller_projects:
-    - name: "{{ orgs }} CasC_Data"
+    - name: "{{ orgs }} CasC Data"
       description: "Project to include the CasC playbooks"
       organization: "{{ orgs }}"
       scm_type: git
@@ -138,7 +138,7 @@ Other important files to be configured are in the following directories:
     - name: "{{ orgs }} JT_CasC_Ctrl_Config"
       description: "Template to deploy Controller objects in Org {{ orgs }}"
       organization: "{{ orgs }}"
-      project: "{{ orgs }} CasC_Data"
+      project: "{{ orgs }} CasC Data"
       inventory: "{{ orgs }} Controller"
       playbook: "casc_ctrl_config.yml"
       job_type: run
@@ -158,7 +158,7 @@ Other important files to be configured are in the following directories:
     - name: "{{ orgs }} CasC_Ctrl_Config_Unified"
       description: "Template to deploy Controller objects in Org {{ orgs }}"
       organization: "{{ orgs }}"
-      project: "{{ orgs }} CasC_Data"
+      project: "{{ orgs }} CasC Data"
       inventory: "{{ orgs }} Controller"
       playbook: "casc_ctrl_config_unified.yml"
       job_type: run

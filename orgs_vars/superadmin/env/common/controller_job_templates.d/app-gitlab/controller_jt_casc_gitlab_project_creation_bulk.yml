@@ -3,7 +3,7 @@ controller_templates:
   - name: "{{ orgs }} JT_Gitlab_Project_Creation_Bulk"
     description: "Template to create projet in gitlab"
     organization: "{{ orgs }}"
-    project: "{{ orgs }} CasC_Data"
+    project: "{{ orgs }} CasC Data"
     inventory: "{{ orgs }} Controller"
     playbook: "controller_users_projects_creation_bulk.yml"
     job_type: run

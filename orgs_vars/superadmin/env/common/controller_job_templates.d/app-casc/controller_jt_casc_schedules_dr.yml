@@ -3,7 +3,7 @@ controller_templates:
   - name: "{{ orgs }} JT_CasC_Ctrl_Schedules_Enable_Disable"
     description: "Template to active/deactive schedules depend on which site is active"
     organization: "{{ orgs }}"
-    project: "{{ orgs }} CasC_Data"
+    project: "{{ orgs }} CasC Data"
     inventory: "{{ orgs }} Controller"
     playbook: "casc_ctrl_enable_disable_schedules.yml"
     job_type: run

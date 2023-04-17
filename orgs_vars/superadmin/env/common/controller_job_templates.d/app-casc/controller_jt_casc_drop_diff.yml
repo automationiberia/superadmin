@@ -3,7 +3,7 @@ controller_templates:
   - name: "{{ orgs }} JT_CasC_Ctrl_Drop_Diff"
     description: "Template to assure no difference between API and repository"
     organization: "{{ orgs }}"
-    project: "{{ orgs }} CasC_Data"
+    project: "{{ orgs }} CasC Data"
     inventory: "{{ orgs }} Controller"
     playbook: "casc_ctrl_drop_diff.yml"
     job_type: run
@@ -24,7 +24,7 @@ controller_templates:
   - name: "{{ orgs }} CasC_Ctrl_Drop_Diff_Unified"
     description: "Template to assure no difference between API and repository"
     organization: "{{ orgs }}"
-    project: "{{ orgs }} CasC_Data"
+    project: "{{ orgs }} CasC Data"
     inventory: "{{ orgs }} Controller"
     playbook: "casc_ctrl_drop_diff_unified.yml"
     job_type: run
