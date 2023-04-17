@@ -1,12 +1,24 @@
 ---
 controller_projects:
-  - name: "{{ orgs }} CasC_Data"
-    description: "Project to include the vars values of the {{ orgs }} Org"
+  - name: "{{ orgs }}-CASC-Data"
+    description: "Project to include the CasC playbooks"
     organization: "{{ orgs }}"
     scm_type: git
-    scm_url: "https://github.com/automationiberia/superadmin.git"
-    scm_credential: "{{ orgs }} {{ env }} Gitlab Credential"
+    scm_url: "git@{{ gitlab_hostname }}:git/path/to/casc-repository.git"
+    scm_credential: "{{ orgs }}-{{ env }}-GitLab-Credential"
     scm_branch: "{{ casc_gitlab_scm_branch | default(env) }}"
+    scm_clean: false
+    scm_delete_on_update: false
+    scm_update_on_launch: false
+    scm_update_cache_timeout: 86400
+    allow_override: true
+
+  - name: "{{ orgs }}-CASC-GitLab-Webhook"
+    description: "Project to include playbooks to configure the GitLab Webhooks for the CasC to be able to run"
+    organization: "{{ orgs }}"
+    scm_url: "git@{{ gitlab_hostname }}:git/path/to/gitlab-repository.git"
+    scm_credential: "{{ orgs }}-{{ env }}-GitLab-Credential"
+    scm_branch: main
     scm_clean: false
     scm_delete_on_update: false
     scm_update_on_launch: false
