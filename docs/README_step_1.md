@@ -135,17 +135,17 @@ Other important files to be configured are in the following directories:
   ```yaml
   ---
   controller_templates:
-    - name: "{{ orgs }}-CASC-CTRL-Config"
+    - name: "{{ orgs }} JT_CasC_Ctrl_Config"
       description: "Template to deploy Controller objects in Org {{ orgs }}"
       organization: "{{ orgs }}"
-      project: "{{ orgs }}-CASC-Data"
-      inventory: "{{ orgs }}-Controller"
+      project: "{{ orgs }} CasC_Data"
+      inventory: "{{ orgs }} Controller"
       playbook: "casc_ctrl_config.yml"
       job_type: run
       fact_caching_enabled: false
       credentials:
-        - "{{ orgs }}-{{ env }}-AAP-Credential"
-        - "{{ orgs }}-{{ env }}-Vault-Credential"
+        - "{{ orgs }} {{ env }} AAP Credential"
+        - "{{ orgs }} {{ env }} Vault Credential"
       concurrent_jobs_enabled: true
       ask_scm_branch_on_launch: true
       ask_tags_on_launch: true
@@ -154,18 +154,18 @@ Other important files to be configured are in the following directories:
       extra_vars:
         ansible_python_interpreter: /usr/bin/python3
         ansible_async_dir: /home/runner/.ansible_async/
-      execution_environment: "EE-CASC"
-    - name: "{{ orgs }}-CASC-CTRL-Config-Unified"
-      description: "Template to deploy Controller objects in all the other Orgs"
+      execution_environment: "ee-casc"
+    - name: "{{ orgs }} CasC_Ctrl_Config_Unified"
+      description: "Template to deploy Controller objects in Org {{ orgs }}"
       organization: "{{ orgs }}"
-      project: "{{ orgs }}-CASC-Data"
-      inventory: "{{ orgs }}-Controller"
+      project: "{{ orgs }} CasC_Data"
+      inventory: "{{ orgs }} Controller"
       playbook: "casc_ctrl_config_unified.yml"
       job_type: run
       fact_caching_enabled: false
       credentials:
-        - "{{ orgs }}-{{ env }}-AAP-Credential"
-        - "{{ orgs }}-{{ env }}-Vault-Credential"
+        - "{{ orgs }}-{{ env }} AAP Credential"
+        - "{{ orgs }}-{{ env }} Vault Credential"
       concurrent_jobs_enabled: true
       ask_scm_branch_on_launch: true
       ask_tags_on_launch: true
@@ -174,7 +174,7 @@ Other important files to be configured are in the following directories:
       extra_vars:
         ansible_python_interpreter: /usr/bin/python3
         ansible_async_dir: /home/runner/.ansible_async/
-      execution_environment: "EE-CASC"
+      execution_environment: "ee-casc"
   ...
   ```
 * `orgs_vars/superadmin/env/common/controller_roles.d`: Configuration files to create the needed roles for the different object types:
