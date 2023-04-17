@@ -1,3 +1,11 @@
 ---
-controller_instance_groups: []
+controller_instance_groups:
+  - name: INSTANCE_1
+    instances:
+      - controller.host.first.fqdn
+      - controller.host.second.fqdn
+  - name: INSTANCE_2
+    instances:
+      - 10.20.30.40
+      - 10.20.30.41
 ...
