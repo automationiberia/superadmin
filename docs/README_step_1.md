@@ -1,7 +1,7 @@
 | [main document][main_doc] | [step-by-step document][step-by-step] | [next document][step_2] |
 |:--:|:--:|:--:|
 
-## 1. Customize the SUPERADMIN organization objects
+## 1. Customize the `superadmin` organization objects
 
 The first settings to be configured are the credentials to reach the Ansible Automation Controller. This configuration is done at the following `ansible-vault`ed files:
 
@@ -30,7 +30,7 @@ The hostname is taken from the inventory used to run the configuragion playbook.
 
 Other important files to be configured are in the following directories:
 
-* `orgs_vars/SUPERADMIN/env/dev/controller_credentials.d`: Configuration files for the credentials used for the Job Templates to access Git repositories, Ansible Controller, Private Automation Hub, Machines and also the vault password to decrypt our vaulted-files. Following is an example a `Red Hat Ansible Automation Platform` credential:
+* `orgs_vars/superadmin/env/dev/controller_credentials.d`: Configuration files for the credentials used for the Job Templates to access Git repositories, Ansible Controller, Private Automation Hub, Machines and also the vault password to decrypt our vaulted-files. Following is an example a `Red Hat Ansible Automation Platform` credential:
   ```yaml
   ---
   controller_credentials:
@@ -45,7 +45,7 @@ Other important files to be configured are in the following directories:
         verify_ssl: "{{ controller_validate_certs }}"
   ...
   ```
-* `orgs_vars/SUPERADMIN/env/dev/controller_execution_environments.d`: Configuration files for the execution environments we are providing to both CasC Job Templates and current ones:
+* `orgs_vars/superadmin/env/dev/controller_execution_environments.d`: Configuration files for the execution environments we are providing to both CasC Job Templates and current ones:
   ```yaml
   ---
   controller_execution_environments:
@@ -55,7 +55,7 @@ Other important files to be configured are in the following directories:
       credential: "{{ orgs }}-{{ env }}-PAH-Container-Registry"
   ...
   ```
-* `orgs_vars/SUPERADMIN/env/dev/controller_instance_groups.d/controller_instance_groups.yml`: Configuration files for the instance groups to be generated:
+* `orgs_vars/superadmin/env/dev/controller_instance_groups.d/controller_instance_groups.yml`: Configuration files for the instance groups to be generated:
   ```yaml
   ---
   controller_instance_groups:
@@ -69,7 +69,7 @@ Other important files to be configured are in the following directories:
         - 10.20.30.41
   ...
   ```
-* `orgs_vars/SUPERADMIN/env/dev/controller_settings.d`: Configuration files to control all the Controller settings. An example for the job related settings is shown below, and is stored at `orgs_vars/SUPERADMIN/env/dev/controller_settings.d/jobs/controller_settings_jobs.yml`:
+* `orgs_vars/superadmin/env/dev/controller_settings.d`: Configuration files to control all the Controller settings. An example for the job related settings is shown below, and is stored at `orgs_vars/superadmin/env/dev/controller_settings.d/jobs/controller_settings_jobs.yml`:
   ```yaml
   ---
   controller_settings:
@@ -89,11 +89,11 @@ Other important files to be configured are in the following directories:
   #       ENVIRONMENT_VAR2: "VAR2_VALUE"
   ...
   ```
-* `orgs_vars/SUPERADMIN/env/common/controller_organizations.d`: Configuration files for the organizations to be created:
+* `orgs_vars/superadmin/env/common/controller_organizations.d`: Configuration files for the organizations to be created:
   ```yaml
   ---
   controller_organizations:
-    - name: "SUPERADMIN"
+    - name: "superadmin"
       description: "Organization for objects that requiere superadmin powers"
       galaxy_credentials:
         - "{{ orgs }}-{{ env }}-PAH-Community-Repository"
@@ -101,7 +101,7 @@ Other important files to be configured are in the following directories:
         - "{{ orgs }}-{{ env }}-PAH-RH-Certified-Repository"
   ...
   ```
-* `orgs_vars/SUPERADMIN/env/common/controller_projects.d`: Configuration files for the projects to be defined into our organization:
+* `orgs_vars/superadmin/env/common/controller_projects.d`: Configuration files for the projects to be defined into our organization:
   ```yaml
   ---
   controller_projects:
@@ -131,7 +131,7 @@ Other important files to be configured are in the following directories:
       allow_override: true
   ...
   ```
-* `orgs_vars/SUPERADMIN/env/common/controller_job_templates.d`: Configuration files for the Job Templates to be created:
+* `orgs_vars/superadmin/env/common/controller_job_templates.d`: Configuration files for the Job Templates to be created:
   ```yaml
   ---
   controller_templates:
@@ -177,7 +177,7 @@ Other important files to be configured are in the following directories:
       execution_environment: "EE-CASC"
   ...
   ```
-* `orgs_vars/SUPERADMIN/env/common/controller_roles.d`: Configuration files to create the needed roles for the different object types:
+* `orgs_vars/superadmin/env/common/controller_roles.d`: Configuration files to create the needed roles for the different object types:
   ```yaml
   ---
   ## available roles: admin_role, execute_role, project_admin_role, inventory_admin_role, credential_admin_role, workflow_admin_role, notification_admin_role, job_template_admin_role, execution_environment_admin_role, auditor_role, member_role, read_role, approval_role
