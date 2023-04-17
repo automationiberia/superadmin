@@ -3,16 +3,28 @@
 
 ## 1. Customize the SUPERADMIN organization objects
 
-The first settings to be configured are the credentials to reach the Ansible Automation Controller. This configuration is done at the following `ansible-vault`ed file:
+The first settings to be configured are the credentials to reach the Ansible Automation Controller. This configuration is done at the following `ansible-vault`ed files:
 
-```yaml
----
-vault_controller_username: '<admin_user>'
-vault_controller_password: '<admin_password>'
-vault_controller_hostname: "{{ groups['PRE'][0] }}"
-vault_controller_validate_certs: false
-...
-```
+
+> ```console
+> $ cat group_vars/all/configure_connection_controller_credentials.yml
+> ```
+> ```yaml
+> ---
+> vault_controller_username: 'admin'
+> # vault_controller_password: 'password' #Per environment
+> vault_controller_validate_certs: false
+> ...
+
+> ```console
+> $ cat group_vars/dev/configure_connection_controller_credentials.yml
+> ```
+> ```yaml
+> ---
+> vault_controller_password: 'password-dev'
+> vault_controller_hostname: "{{ groups['dev'][0] }}"
+> ...
+> ```
 
 The hostname is taken from the inventory used to run the configuragion playbook. In the code above, we are taking the first controller on group `PRE`.
 
