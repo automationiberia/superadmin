@@ -73,7 +73,8 @@
         # filetree_controller_credentials:
         #   - "./checkout/{{ dir_orgs_vars }}/{{ orgs }}/env/{{ env }}/controller_credentials.d/"
         #   - "./checkout/{{ dir_orgs_vars }}/{{ orgs }}/env/common/controller_credentials.d/"
-    - {role: redhat_cop.controller_configuration.dispatch, assign_galaxy_credentials_to_org: false}
+    # - {role: redhat_cop.controller_configuration.dispatch, assign_galaxy_credentials_to_org: false}
+    - {role: redhat_cop.controller_configuration.dispatch}
 
     # 39     - {role: redhat_cop.controller_configuration.filetree_read, assign_galaxy_credentials_to_org: false, assign_default_ee_to_org: false}
     # 40     - {role: redhat_cop.controller_configuration.dispatch, assign_galaxy_credentials_to_org: false, assign_default_ee_to_org: false }

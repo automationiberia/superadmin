@@ -96,9 +96,9 @@ Other important files to be configured are in the following directories:
     - name: "superadmin"
       description: "Organization for objects that requiere superadmin powers"
       galaxy_credentials:
-        - "{{ orgs }} {{ env }} {{ controller_location }} Automation Hub Community Repository"
-        - "{{ orgs }} {{ env }} {{ controller_location }} Automation Hub Published Repository"
-        - "{{ orgs }} {{ env }} {{ controller_location }} Automation Hub RH Certified Repository"
+        - "{{ orgs }} {{ env }} Automation Hub Community Repository"
+        - "{{ orgs }} {{ env }} Automation Hub Published Repository"
+        - "{{ orgs }} {{ env }} Automation Hub RH Certified Repository"
   ...
   ```
 * `orgs_vars/superadmin/env/common/controller_projects.d`: Configuration files for the projects to be defined into our organization:

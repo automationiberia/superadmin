@@ -28,11 +28,11 @@ controller_templates:
           min: 0
           max: 1024
           choices:
-            - "lb-hub-dev-site1.lab.example.com"
-            - "lb-hub-dev-site2.lab.example.com"
-            - "lb-hub-pro-site1.lab.example.com"
-            - "lb-hub-pro-site2.lab.example.com"
-          default: "{{ 'lb-hub-dev-site1.lab.example.com' if controller_location != 'site2' else 'lb-hub-pro-site2.lab.example.com' }}"
+            - "lb-hub-dev.lab.example.com"
+            - "lb-hub-dev.lab.example.com"
+            - "lb-hub-pro.lab.example.com"
+            - "lb-hub-pro.lab.example.com"
+          default: "{{ 'lb-hub-dev.lab.example.com' }}"
           new_question: true
 
         - question_name: controller_dev
@@ -42,9 +42,9 @@ controller_templates:
           min: 0
           max: 1024
           choices:
-            - "lb-ctrl-dev-site1.lab.example.com"
-            - "lb-ctrl-dev-site2.lab.example.com"
-          default: "lb-ctrl-dev-site1.lab.example.com"
+            - "lb-ctrl-dev.lab.example.com"
+            - "lb-ctrl-dev.lab.example.com"
+          default: "lb-ctrl-dev.lab.example.com"
           new_question: true
 
         - question_name: controller_pro
@@ -54,9 +54,9 @@ controller_templates:
           min: 0
           max: 1024
           choices:
-            - "lb-ctrl-pro-site1.lab.example.com"
-            - "lb-ctrl-pro-site2.lab.example.com"
-          default: "lb-ctrl-pro-site1.lab.example.com"
+            - "lb-ctrl-pro.lab.example.com"
+            - "lb-ctrl-pro.lab.example.com"
+          default: "lb-ctrl-pro.lab.example.com"
           new_question: true
 
         - question_name: gitlab_api_url

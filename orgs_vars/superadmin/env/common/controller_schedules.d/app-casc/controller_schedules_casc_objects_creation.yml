@@ -12,7 +12,6 @@ controller_schedules:
       dir_orgs_vars: orgs_vars
       orgs: "{{ orgs }}"
       casc_gitlab_scm_branch: "{{ casc_gitlab_scm_branch | default(env) }}"
-      controller_location: "{{ controller_location }}"
     organization: "{{ orgs }}"
 
 ...

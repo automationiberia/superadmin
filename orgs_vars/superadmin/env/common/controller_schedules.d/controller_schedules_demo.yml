@@ -9,7 +9,6 @@ controller_schedules:
       ansible_python_interpreter: /usr/bin/python3
       ansible_async_dir: /home/runner/.ansible_async/
       env: "{{ env }}"
-      controller_location: "{{ controller_location }}"
     organization: "{{ orgs }}"
 
 ...

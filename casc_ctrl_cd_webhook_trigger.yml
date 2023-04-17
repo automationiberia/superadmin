@@ -2,11 +2,6 @@
 - hosts: all
   connection: local
   gather_facts: false
-  # vars:
-  #   controller_host_list_site1:
-  #     - aap.site1.com
-  #   controller_host_list_site2:
-  #     - aap.site2.com
   tasks:
     - name: "Get the modified files over the dirs from all the received commits"
       set_fact:
@@ -18,9 +13,6 @@
                            (awx_webhook_payload.commits | map(attribute='modified') | list) +
                            (awx_webhook_payload.commits | map(attribute='removed') | list))
                        | flatten }}"
-    - set_fact:
-        __controller_location: "{{ __CONTROLLER_CLUSTER_ID }}"
-        __schedule_is_enabled:  "{{ true if __CONTROLLER_CLUSTER_ID == controller_inventory_site_is_active else false }}"
 
     # https://regex101.com/r/0SgpFn/1
     - set_fact:
@@ -50,7 +42,6 @@
               ansible_python_interpreter: "/usr/bin/python3"
               env: "{{ __env }}"
               casc_gitlab_scm_branch: "{{ __casc_gitlab_scm_branch }}"
-              controller_location: "{{ __controller_location }}"
               schedule_is_enabled: "{{ __schedule_is_enabled }}"
             tags: "{{ __drop_diff_org_tags_item.value }}"
             wait: true
@@ -73,7 +64,6 @@
               ansible_python_interpreter: "/usr/bin/python3"
               env: "{{ __env }}"
               casc_gitlab_scm_branch: "{{ __casc_gitlab_scm_branch }}"
-              controller_location: "{{ __controller_location }}"
               schedule_is_enabled: "{{ __schedule_is_enabled }}"
             tags: "{{ __config_controller_org_tags_item.value }}"
             wait: true
