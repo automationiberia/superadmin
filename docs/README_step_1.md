@@ -26,11 +26,11 @@ The first settings to be configured are the credentials to reach the Ansible Aut
 > ...
 > ```
 
-The hostname is taken from the inventory used to run the configuragion playbook. In the code above, we are taking the first controller on group `PRE`.
+The hostname is taken from the inventory used to run the configuragion playbook. In the code above, we are taking the first controller on group `dev`.
 
 Other important files to be configured are in the following directories:
 
-* `orgs_vars/SUPERADMIN/env/PRE/controller_credentials.d`: Configuration files for the credentials used for the Job Templates to access Git repositories, Ansible Controller, Private Automation Hub, Machines and also the vault password to decrypt our vaulted-files. Following is an example a `Red Hat Ansible Automation Platform` credential:
+* `orgs_vars/SUPERADMIN/env/dev/controller_credentials.d`: Configuration files for the credentials used for the Job Templates to access Git repositories, Ansible Controller, Private Automation Hub, Machines and also the vault password to decrypt our vaulted-files. Following is an example a `Red Hat Ansible Automation Platform` credential:
   ```yaml
   ---
   controller_credentials:
@@ -45,7 +45,7 @@ Other important files to be configured are in the following directories:
         verify_ssl: "{{ controller_validate_certs }}"
   ...
   ```
-* `orgs_vars/SUPERADMIN/env/PRE/controller_execution_environments.d`: Configuration files for the execution environments we are providing to both CasC Job Templates and current ones:
+* `orgs_vars/SUPERADMIN/env/dev/controller_execution_environments.d`: Configuration files for the execution environments we are providing to both CasC Job Templates and current ones:
   ```yaml
   ---
   controller_execution_environments:
@@ -55,7 +55,7 @@ Other important files to be configured are in the following directories:
       credential: "{{ orgs }}-{{ env }}-PAH-Container-Registry"
   ...
   ```
-* `orgs_vars/SUPERADMIN/env/PRE/controller_instance_groups.d/controller_instance_groups.yml`: Configuration files for the instance groups to be generated:
+* `orgs_vars/SUPERADMIN/env/dev/controller_instance_groups.d/controller_instance_groups.yml`: Configuration files for the instance groups to be generated:
   ```yaml
   ---
   controller_instance_groups:
@@ -69,7 +69,7 @@ Other important files to be configured are in the following directories:
         - 10.20.30.41
   ...
   ```
-* `orgs_vars/SUPERADMIN/env/PRE/controller_settings.d`: Configuration files to control all the Controller settings. An example for the job related settings is shown below, and is stored at `orgs_vars/SUPERADMIN/env/PRE/controller_settings.d/jobs/controller_settings_jobs.yml`:
+* `orgs_vars/SUPERADMIN/env/dev/controller_settings.d`: Configuration files to control all the Controller settings. An example for the job related settings is shown below, and is stored at `orgs_vars/SUPERADMIN/env/dev/controller_settings.d/jobs/controller_settings_jobs.yml`:
   ```yaml
   ---
   controller_settings:
