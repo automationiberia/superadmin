@@ -180,13 +180,14 @@ Other important files to be configured are in the following directories:
 * `orgs_vars/superadmin/env/common/controller_roles.d`: Configuration files to create the needed roles for the different object types:
   ```yaml
   ---
-  ## available roles: admin_role, execute_role, project_admin_role, inventory_admin_role, credential_admin_role, workflow_admin_role, notification_admin_role, job_template_admin_role, execution_environment_admin_role, auditor_role, member_role, read_role, approval_role
   controller_roles:
-    # USER ROLES
-    # orgadminuser
-    - user: "orgadminuser"
+    - user: "user1"
       organizations:
-        - "ORG"
+        - "casc_org1"
+      role: admin
+    - user: "user2"
+      organizations:
+        - "casc_org2"
       role: admin
   ...
   ```
