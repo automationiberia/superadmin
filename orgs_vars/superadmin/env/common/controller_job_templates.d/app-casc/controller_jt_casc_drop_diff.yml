@@ -1,6 +1,6 @@
 ---
 controller_templates:
-  - name: "{{ orgs }} JT_CasC_Ctrl_Drop_Diff"
+  - name: "{{ orgs }} CasC Ctrl Drop Diff"
     description: "Template to assure no difference between API and repository"
     organization: "{{ orgs }}"
     project: "{{ orgs }} CasC Data"
@@ -21,7 +21,7 @@ controller_templates:
       ansible_async_dir: /home/runner/.ansible_async/
       protect_not_empty_orgs: true
     execution_environment: "ee-casc"
-  - name: "{{ orgs }} CasC_Ctrl_Drop_Diff_Unified"
+  - name: "{{ orgs }} CasC Ctrl Drop Diff Unified"
     description: "Template to assure no difference between API and repository"
     organization: "{{ orgs }}"
     project: "{{ orgs }} CasC Data"
@@ -30,8 +30,8 @@ controller_templates:
     job_type: run
     fact_caching_enabled: false
     credentials:
-      - "{{ orgs }}-{{ env }} AAP Credential"
-      - "{{ orgs }}-{{ env }} Vault Credential"
+      - "{{ orgs }} {{ env }} AAP Credential"
+      - "{{ orgs }} {{ env }} Vault Credential"
     concurrent_jobs_enabled: true
     ask_scm_branch_on_launch: true
     ask_tags_on_launch: true

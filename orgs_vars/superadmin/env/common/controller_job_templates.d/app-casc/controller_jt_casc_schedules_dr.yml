@@ -1,6 +1,6 @@
 ---
 controller_templates:
-  - name: "{{ orgs }} JT_CasC_Ctrl_Schedules_Enable_Disable"
+  - name: "{{ orgs }} CasC Ctrl Schedules Enable Disable"
     description: "Template to active/deactive schedules depend on which site is active"
     organization: "{{ orgs }}"
     project: "{{ orgs }} CasC Data"

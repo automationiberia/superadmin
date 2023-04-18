@@ -1,6 +1,6 @@
 ---
 controller_templates:
-  - name: "{{ orgs }} JT_Gitlab_Project_Creation_Bulk"
+  - name: "{{ orgs }} Gitlab Project Creation Bulk"
     description: "Template to create projet in gitlab"
     organization: "{{ orgs }}"
     project: "{{ orgs }} CasC Data"

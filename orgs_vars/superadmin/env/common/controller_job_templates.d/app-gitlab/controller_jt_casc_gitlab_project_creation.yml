@@ -1,9 +1,9 @@
 ---
 controller_templates:
-  - name: "{{ orgs }} JT_Gitlab_Project_Creation"
+  - name: "{{ orgs }} Gitlab Project Creation"
     description: "Template to create projet in gitlab"
     organization: "{{ orgs }}"
-    project: "superadmin CasC_GitLab"
+    project: "superadmin CasC GitLab Webhook"
     inventory: "{{ orgs }} Controller"
     playbook: "playbooks/gitlab_setup.yml"
     job_type: run

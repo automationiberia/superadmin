@@ -1,14 +1,7 @@
 ---
 controller_execution_environments:
   - name: "ee-casc"
-    image: lb-hub-pro-site1.lab.example.com/ee-casc:v2.0
+    image: lb-hub-pro.lab.example.com/ee-casc:v2.0
     pull: always
-    credential: "{{ orgs }} {{ env }} {{ controller_location }} Automation Private Hub Container Registry"
-    controller_location: site1
-
-  - name: "ee-casc"
-    image: lb-hub-pro-site2.lab.example.com/ee-ca:2.0
-    pull: always
-    credential: "{{ orgs }} {{ env }} {{ controller_location }} Automation Private Hub Container Registry"
-    controller_location: site2
+    credential: "{{ orgs }} {{ env }} Automation Private Hub Container Registry"
 ...

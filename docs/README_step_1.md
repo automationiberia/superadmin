@@ -34,8 +34,8 @@ Other important files to be configured are in the following directories:
   ```yaml
   ---
   controller_credentials:
-    - name: "{{ orgs }}-{{ env }}-AAP-Credential"
-      description: "{{ orgs }}-{{ env }}-AAP-Credential"
+    - name: "{{ orgs }} {{ env }} AAP Credential"
+      description: "{{ orgs }} {{ env }} AAP Credential"
       credential_type: "Red Hat Ansible Automation Platform"
       organization: "{{ orgs }}"
       inputs:
@@ -135,7 +135,7 @@ Other important files to be configured are in the following directories:
   ```yaml
   ---
   controller_templates:
-    - name: "{{ orgs }} JT_CasC_Ctrl_Config"
+    - name: "{{ orgs }} CasC Ctrl Config"
       description: "Template to deploy Controller objects in Org {{ orgs }}"
       organization: "{{ orgs }}"
       project: "{{ orgs }} CasC Data"
@@ -155,7 +155,7 @@ Other important files to be configured are in the following directories:
         ansible_python_interpreter: /usr/bin/python3
         ansible_async_dir: /home/runner/.ansible_async/
       execution_environment: "ee-casc"
-    - name: "{{ orgs }} CasC_Ctrl_Config_Unified"
+    - name: "{{ orgs }} CasC Ctrl Config Unified"
       description: "Template to deploy Controller objects in Org {{ orgs }}"
       organization: "{{ orgs }}"
       project: "{{ orgs }} CasC Data"
@@ -164,8 +164,8 @@ Other important files to be configured are in the following directories:
       job_type: run
       fact_caching_enabled: false
       credentials:
-        - "{{ orgs }}-{{ env }} AAP Credential"
-        - "{{ orgs }}-{{ env }} Vault Credential"
+        - "{{ orgs }} {{ env }} AAP Credential"
+        - "{{ orgs }} {{ env }} Vault Credential"
       concurrent_jobs_enabled: true
       ask_scm_branch_on_launch: true
       ask_tags_on_launch: true

@@ -12,7 +12,7 @@ controller_workflows:
     simplified_workflow_nodes:
       - identifier: "LAUNCH_CI_{{ orgs }}"
         workflow_job_template: "{{ orgs }} WF CasC Ctrl"
-        unified_job_template: "{{ orgs }} JT CasC Ctrl CD Webhook Trigger"
+        unified_job_template: "{{ orgs }} CasC Ctrl CD Webhook Trigger"
         job_type: run
         organization: "{{ orgs }}"
         workflow: "{{ orgs }} WF CasC Ctrl"

@@ -1,11 +1,11 @@
 ---
 controller_projects:
-  - name: "{{ orgs }} CasC_GitLab"
-    description: "Project to include the vars values of the {{ orgs }} Org"
+  - name: "{{ orgs }} CasC GitLab Webhook"
+    description: "Project to include playbooks to configure the GitLab Webhooks for the CasC to be able to run"
     organization: "{{ orgs }}"
     scm_type: git
-    scm_url: "https://github.com/automationiberia/casc_setup.git"
-    scm_credential: "{{ orgs }} {{ env }} Gitlab Credential"
+    scm_url: "git@github.com:automationiberia/casc_setup.git"
+    scm_credential: "{{ orgs }} {{ env }} GitLab Credential"
     scm_branch: main
     scm_clean: false
     scm_delete_on_update: false

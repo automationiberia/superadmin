@@ -2,7 +2,7 @@
 controller_schedules:
   - name: "{{ orgs }} CasC_Objects_Creation"
     description: CasC_Ojbects_Cleanup
-    unified_job_template: "{{ orgs }} JT_CasC_Ctrl_Config"
+    unified_job_template: "{{ orgs }} CasC Ctrl Config"
     rrule: DTSTART;TZID=Europe/Madrid:20220127T000000 RRULE:INTERVAL=1;FREQ=DAILY
     enabled: false
     extra_data:

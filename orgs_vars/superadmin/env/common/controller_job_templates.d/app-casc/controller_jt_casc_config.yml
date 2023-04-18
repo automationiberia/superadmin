@@ -1,6 +1,6 @@
 ---
 controller_templates:
-  - name: "{{ orgs }} JT_CasC_Ctrl_Config"
+  - name: "{{ orgs }} CasC Ctrl Config"
     description: "Template to deploy Controller objects in Org {{ orgs }}"
     organization: "{{ orgs }}"
     project: "{{ orgs }} CasC Data"
@@ -20,7 +20,7 @@ controller_templates:
       ansible_python_interpreter: /usr/bin/python3
       ansible_async_dir: /home/runner/.ansible_async/
     execution_environment: "ee-casc"
-  - name: "{{ orgs }} CasC_Ctrl_Config_Unified"
+  - name: "{{ orgs }} CasC Ctrl Config Unified"
     description: "Template to deploy Controller objects in Org {{ orgs }}"
     organization: "{{ orgs }}"
     project: "{{ orgs }} CasC Data"
@@ -29,8 +29,8 @@ controller_templates:
     job_type: run
     fact_caching_enabled: false
     credentials:
-      - "{{ orgs }}-{{ env }} AAP Credential"
-      - "{{ orgs }}-{{ env }} Vault Credential"
+      - "{{ orgs }} {{ env }} AAP Credential"
+      - "{{ orgs }} {{ env }} Vault Credential"
     concurrent_jobs_enabled: true
     ask_scm_branch_on_launch: true
     ask_tags_on_launch: true

@@ -1,9 +1,9 @@
 ---
 controller_templates:
-  - name: "{{ orgs }} JT_Gitlab_Webhook_Creation"
+  - name: "{{ orgs }} Gitlab Webhook Creation"
     description: "Template to create webhook in the gitlab project"
     organization: "{{ orgs }}"
-    project: "superadmin CasC_GitLab"
+    project: "superadmin CasC GitLab Webhook"
     inventory: "{{ orgs }} Controller"
     playbook: "playbooks/gitlab_webhook.yml"
     job_type: run
@@ -16,7 +16,7 @@ controller_templates:
       ansible_python_interpreter: /usr/bin/python3
       ansible_async_dir: /home/runner/.ansible_async/
       gitlab_api_user: ""
-    execution_environment: "ee-casc-sites"
+    execution_environment: "ee-casc"
     survey_enabled: True
     survey_spec:
       name: '{{ orgs }} Survey_Gitlab_Webhook_Creation'

@@ -1,5 +1,5 @@
 [dev]
-lb-controller-dev.lab.example.com
+aap22dev.iam.lab
 
 [pro]
 lb-controller-pro.lab.example.com

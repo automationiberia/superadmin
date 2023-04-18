@@ -1,6 +1,6 @@
 ---
 controller_templates:
-  - name: "{{ orgs }} JT CasC Ctrl CD Webhook Trigger"
+  - name: "{{ orgs }} CasC Ctrl CD Webhook Trigger"
     description: "Template to attend Controller CasC webhook"
     organization: "{{ orgs }}"
     project: "{{ orgs }} CasC Data"
